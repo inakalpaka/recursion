@@ -1,0 +1,20 @@
+let array = [0,2,4,7,8,10,30];
+
+function buscar (arr,i,f,n){ //arr = arreglo donde se busca el numero n, i indice , indice final
+    if(arr[Math.ceil((i+f)/2)] === n){
+        return true;
+    } // caso base si el numero que busco esta en el medio 
+    if(f-i === 1){if(arr[f] === n || arr[i] === n){
+        return true
+    }
+    else{
+        return false;
+        }
+    } // caso base donde el numero no esta en el array
+    if(arr[Math.ceil((i+f)/2)] < n){
+        buscar (arr,Math.ceil((i+f)/2),f,n);
+    } // si el numero que esta en el medio es menor
+    buscar (arr,i,Math.ceil((i+f)/2),n) // si el numero que esta en el medi es mayor
+}
+console.log(buscar(array,0,array.length -1,10));
+console.log(Math.ceil(3));
